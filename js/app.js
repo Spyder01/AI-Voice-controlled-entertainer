@@ -57,7 +57,6 @@ const pause = ()=>{
 const next = ()=>{
     sound.pause()
     sound.src = Music[++index%Music.length];
-    iconChanger ()
     sound.play()
 }
 
