@@ -46,8 +46,6 @@ const shuffle = ()=>{
     sound.play()
 }
 
-const play = document.getElementById('play');
-const pause = document.getElementById('pause');
 
 var alanBtnInstance = alanBtn({
     key: "386afa49abb52dfcb7c27a304555264e2e956eca572e1d8b807a3e2338fdd0dc/stage",
@@ -80,22 +78,7 @@ var alanBtnInstance = alanBtn({
 
 
 
-   
 
-
-
-
-play.addEventListener('click', ()=>{
-    next ()
-  if(!sound.playing()) {
-    sound.play ()
-  }
-  else sound.pause ()
-})
-
-pause.addEventListener('click', ()=>{
-    next ()
-})
 
 
 

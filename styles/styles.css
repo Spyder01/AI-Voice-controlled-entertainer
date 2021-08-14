@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+
+
 body {
     background: #000;
     color: #27f7f7;
+    font-family: 'Share Tech Mono', monospace !important;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5%;
+}
+
+
+
+.typewriter h1 {
+    font-size: 1.5em;
 }
 
 
@@ -9,3 +23,49 @@ body {
     right: 0;
     bottom: 0;
 }
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    margin-top: 25px;
+}
+
+.container .spinner {
+
+    border-radius: 50%;
+    margin-top: 60px;
+}
+
+.outer {
+    margin: auto;
+    border: 18px solid rgba(0,0,0,0); 
+    border-top: 18px solid rgb(255,255,0); 
+    border-bottom: 18px solid rgb(255,255,0);
+    border-radius: 50%;
+    border-style: double;
+    width: 200px;
+    height: 200px;
+    animation: spin 5s linear infinite;
+    
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .inner {
+    margin:auto;
+    border: 17px solid rgba(0,0,0,0); 
+    border-top: 17px solid rgb(0,255,255);
+    border-bottom: 17px solid rgb(0,255,255);
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    animation: spin2 1.5s linear infinite;
+    
+  }
+  @keyframes spin2 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
