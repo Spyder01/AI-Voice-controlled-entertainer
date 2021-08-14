@@ -37,6 +37,18 @@ body {
     border-radius: 50%;
 }
 
+#music-player {
+  display: none;
+}
+
+.play {
+  display: inline-block;
+}
+
+.pause {
+  display: none;
+}
+
 .outer {
     margin: auto;
     border: 18px solid rgba(0,0,0,0); 

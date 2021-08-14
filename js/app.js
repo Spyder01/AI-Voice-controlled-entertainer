@@ -29,13 +29,17 @@ const sound = new Audio(Music[index])
 
 var flag = false;
 
+
 sound.addEventListener('ended', ()=>{
     next ()
 })
 
 const play = ()=>{
     flag = true;
-    music_player.style.display = 'flex';
+    music_player.style.display = 'block';
+    
+    document.getElementsByClassName('play')[0].style.display = 'none'
+    document.getElementsByClassName('pause')[0].style.display = 'inline-block'
     sound.play ()
 }
 
@@ -44,9 +48,16 @@ const stop = ()=>{
     music_player.style.display = 'none';
     sound.load ()
 }
+
+const pause = ()=>{
+    sound.pause ()
+    document.getElementsByClassName('pause')[0].style.display = 'none'
+    document.getElementsByClassName('play')[0].style.display = 'inline-block'
+}
 const next = ()=>{
     sound.pause()
     sound.src = Music[++index%Music.length];
+    iconChanger ()
     sound.play()
 }
 
@@ -76,7 +87,7 @@ var alanBtnInstance = alanBtn({
             play ()
         }
         if(commandData.command === "pause" && flag)
-            sound.pause ()
+            pause ()
         if(commandData.command === "next"&&flag) 
             next ()
         if(commandData.command === "prev"&&flag)
@@ -95,9 +106,9 @@ var alanBtnInstance = alanBtn({
 
 music_play_pause.addEventListener('click', ()=>{
     if(sound.paused) {
-        sound.play();
+        play();
     }
-    else sound.pause();
+    else pause();
 })
 
 music_next.addEventListener('click', ()=>{
