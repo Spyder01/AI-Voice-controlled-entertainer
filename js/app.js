@@ -34,12 +34,21 @@ sound.addEventListener('ended', ()=>{
     next ()
 })
 
+const iconChanger = (decider)=>{
+    if(decider){
+    document.getElementsByClassName('play')[0].style.display = 'none'
+    document.getElementsByClassName('pause')[0].style.display = 'inline-block'
+    } else {
+        document.getElementsByClassName('pause')[0].style.display = 'none'
+        document.getElementsByClassName('play')[0].style.display = 'inline-block'       
+    }
+    
+}
+
 const play = ()=>{
     flag = true;
     music_player.style.display = 'block';
-    
-    document.getElementsByClassName('play')[0].style.display = 'none'
-    document.getElementsByClassName('pause')[0].style.display = 'inline-block'
+    iconChanger(true)
     sound.play ()
 }
 
@@ -51,26 +60,25 @@ const stop = ()=>{
 
 const pause = ()=>{
     sound.pause ()
-    document.getElementsByClassName('pause')[0].style.display = 'none'
-    document.getElementsByClassName('play')[0].style.display = 'inline-block'
+    iconChanger(false);
 }
 const next = ()=>{
-    sound.pause()
+    pause()
     sound.src = Music[++index%Music.length];
-    sound.play()
+    play()
 }
 
 const prev = ()=>{
-    sound.pause()
+    pause()
     sound.src = Music[index%Music.length-1];
-    sound.play()
+    play()
 }
 
 const shuffle = ()=>{
-    sound.pause()
+    pause()
     index = Math.floor(Math.random()*Music.length)
     sound.src = Music[index]
-    sound.play()
+    play()
 }
 
 
