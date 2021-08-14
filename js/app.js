@@ -70,7 +70,11 @@ const next = ()=>{
 
 const prev = ()=>{
     pause()
-    sound.src = Music[index%Music.length-1];
+    if (index==0) {
+        index = Music.length-1
+    }
+     else index--;
+    sound.src = Music[index];
     play()
 }
 
