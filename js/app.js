@@ -109,5 +109,7 @@ music_prev.addEventListener('click', ()=>{
 })
 
 inner_circle.addEventListener('click', ()=>{
+ if(!flag)
     play ()
+ else stop ()
 })
