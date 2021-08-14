@@ -29,13 +29,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    margin-top: 25px;
+    padding-top: 10%;
 }
 
 .container .spinner {
 
     border-radius: 50%;
-    margin-top: 60px;
 }
 
 .outer {
@@ -62,10 +61,15 @@ body {
     border-radius: 50%;
     width: 170px;
     height: 170px;
+    cursor: pointer;
     animation: spin2 1.5s linear infinite;
     
   }
   @keyframes spin2 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(-360deg); }
+  }
+
+  .material-icons {
+      cursor: pointer;
   }

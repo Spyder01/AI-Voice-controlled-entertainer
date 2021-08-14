@@ -15,6 +15,12 @@
 
 ]
 
+const music_player = document.getElementById('music-player');
+const music_play_pause = document.getElementById('play-pause');
+const music_next = document.getElementsByClassName('next')[0];
+const music_prev = document.getElementsByClassName('prev')[0];
+const inner_circle = document.getElementsByClassName('inner')[0];
+music_player.style.display = 'none';
 const Music = MusicNames.map((ele)=>`./music/${ele}.mp3`)
 console.table(Music)
 
@@ -27,6 +33,17 @@ sound.addEventListener('ended', ()=>{
     next ()
 })
 
+const play = ()=>{
+    flag = true;
+    music_player.style.display = 'flex';
+    sound.play ()
+}
+
+const stop = ()=>{
+    flag = false;
+    music_player.style.display = 'none';
+    sound.load ()
+}
 const next = ()=>{
     sound.pause()
     sound.src = Music[++index%Music.length];
@@ -56,8 +73,7 @@ var alanBtnInstance = alanBtn({
     },
     onCommand: function (commandData) {
         if(commandData.command === "play") {
-            sound.play ()
-            flag = true
+            play ()
         }
         if(commandData.command === "pause" && flag)
             sound.pause ()
@@ -69,8 +85,7 @@ var alanBtnInstance = alanBtn({
             shuffle ()
         }
         if(commandData.command === "stop") {
-            sound.load ()         
-            flag = false 
+            stop ()
         }  
     },
     rootEl: document.getElementById("alan-btn"),
@@ -78,9 +93,21 @@ var alanBtnInstance = alanBtn({
 
 
 
+music_play_pause.addEventListener('click', ()=>{
+    if(sound.paused) {
+        sound.play();
+    }
+    else sound.pause();
+})
 
+music_next.addEventListener('click', ()=>{
+    next ()
+})
 
+music_prev.addEventListener('click', ()=>{
+    prev ()
+})
 
-
-
-
+inner_circle.addEventListener('click', ()=>{
+    play ()
+})
