@@ -2,12 +2,12 @@
     'Alessia Cara - Scars To Your Beautiful (Official Audio)',
     'Boney M. - Rasputin (Lyrics) There lived a certain man in Russia long ago [TikTok Song]',
     'Ed Sheeran - Shape of You (Official Music Video)',
-    // 'Game of Thrones The Musical Nikolaj Coster-Waldau - Closer to Home Red Nose Day',
     'Haminastu - Full Video Fitoor Aditya Roy Kapur & Katrina Kaif Amit Trivedi Swanand Kirki',
+    'The Chain (2004 Remaster)',
     'Marshmello ft. Bastille - Happier (Official Music Video)',
     'Queen - We Will Rock You (Official Video)',
     'Rose',
-    'The Chain (2004 Remaster)',
+    'Game of Thrones The Musical Nikolaj Coster-Waldau - Closer to Home Red Nose Day',
     'Charlie Pularikalo Song Video Dulquer Salmaan, Parvathy Official',
     'Bekarar Karke Hume Yun Na Jaiye Hemant Kumar Bees Saal Baad 1962 Songs Waheeda Rehman',
     'Ek Ladki Bhigi Bhagi Si Chalti Ka Naam Gaadi Songs Kishore Kumar Madhubala Rain Song',
@@ -29,6 +29,77 @@ const sound = new Audio(Music[index])
 
 var flag = false;
 
+
+class TypeWriter {
+    constructor(txtElement, words, wait = 3000) {
+      this.txtElement = txtElement;
+      this.words = words;
+      this.txt = '';
+      this.wordIndex = 0;
+      this.wait = parseInt(wait, 10);
+      this.type();
+      this.isDeleting = false;
+    }
+  
+    type() {
+      // Current index of word
+      const current = this.wordIndex % this.words.length;
+      // Get full text of current word
+      const fullTxt = this.words[current];
+  
+      // Check if deleting
+      if(this.isDeleting) {
+        // Remove char
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        // Add char
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+  
+      // Insert txt into element
+      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+  
+      // Initial Type Speed
+      let typeSpeed = 300;
+  
+      if(this.isDeleting) {
+        typeSpeed /= 2;
+      }
+  
+      // If word is complete
+      if(!this.isDeleting && this.txt === fullTxt) {
+        // Make pause at end
+        typeSpeed = this.wait;
+        // Set delete to true
+        this.isDeleting = true;
+      } else if(this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        // Move to next word
+        this.wordIndex++;
+        // Pause before start typing
+        typeSpeed = 500;
+      }
+  
+      setTimeout(() => this.type(), typeSpeed);
+    }
+  }
+  
+
+  // Init App
+  const init = () => {
+    const txtElement = document.querySelector('.txt-type');
+    const words = JSON.parse(txtElement.getAttribute('data-words'));
+    const wait = txtElement.getAttribute('data-wait');
+    // Init TypeWriter
+    new TypeWriter(txtElement, words, wait);
+  }
+
+
+
+  // Init On DOM Load
+  document.addEventListener('DOMContentLoaded', init);
+  
+  
 
 sound.addEventListener('ended', ()=>{
     next ()
