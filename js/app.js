@@ -10,7 +10,8 @@
     'The Chain (2004 Remaster)',
     'Charlie Pularikalo Song Video Dulquer Salmaan, Parvathy Official',
     'Bekarar Karke Hume Yun Na Jaiye Hemant Kumar Bees Saal Baad 1962 Songs Waheeda Rehman',
-    'Ek Ladki Bhigi Bhagi Si Chalti Ka Naam Gaadi Songs Kishore Kumar Madhubala Rain Song'
+    'Ek Ladki Bhigi Bhagi Si Chalti Ka Naam Gaadi Songs Kishore Kumar Madhubala Rain Song',
+    'Taylor Swift - Love Story'
 
 ]
 
