@@ -8,7 +8,9 @@
     'Queen - We Will Rock You (Official Video)',
     'Rose',
     'The Chain (2004 Remaster)',
-    'Charlie Pularikalo Song Video Dulquer Salmaan, Parvathy Official'
+    'Charlie Pularikalo Song Video Dulquer Salmaan, Parvathy Official',
+    'Bekarar Karke Hume Yun Na Jaiye Hemant Kumar Bees Saal Baad 1962 Songs Waheeda Rehman',
+    'Ek Ladki Bhigi Bhagi Si Chalti Ka Naam Gaadi Songs Kishore Kumar Madhubala Rain Song'
 
 ]
 
@@ -32,13 +34,14 @@ const next = ()=>{
 
 const prev = ()=>{
     sound.pause()
-    sound.src = Music[--index%Music.length];
+    sound.src = Music[index%Music.length-1];
     sound.play()
 }
 
 const shuffle = ()=>{
     sound.pause()
-    sound.src = Music[Math.floor(Math.random()*Music.length)]
+    index = Math.floor(Math.random()*Music.length)
+    sound.src = Music[index]
     sound.play()
 }
 
