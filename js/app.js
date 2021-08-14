@@ -7,7 +7,8 @@
     'Marshmello ft. Bastille - Happier (Official Music Video)',
     'Queen - We Will Rock You (Official Video)',
     'Rose',
-    'The Chain (2004 Remaster)'
+    'The Chain (2004 Remaster)',
+    'Charlie Pularikalo Song Video Dulquer Salmaan, Parvathy Official'
 
 ]
 
